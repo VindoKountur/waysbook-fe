@@ -26,8 +26,8 @@ const ListBookHome = () => {
   );
 
   return (
-    <div className="bg-slate-100 px-10 pt-10 pb-10">
-      <div className="flex justify-between">
+    <div className="bg-slate-100 px-3 md:px-10 pt-10 pb-10">
+      <div className="flex justify-between flex-col md:flex-row gap-2">
         <p className="font-bold text-3xl">List Book</p>
         <TextInput
           className="md:w-1/3"
@@ -37,7 +37,7 @@ const ListBookHome = () => {
           onChange={(e) => setKeyword(e.target.value)}
         />
       </div>
-      <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8">
+      <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-8">
         {books?.map((book, idx) => (
           <ListBookCard key={idx} book={book} />
         ))}

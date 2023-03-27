@@ -25,7 +25,7 @@ const BestBooks = () => {
   }
 
   return (
-    <div className="mx-auto h-56 sm:h-64 xl:h-80 2xl:h-96 w-4/5 md:w-2/3 lg:w-3/5">
+    <div className="mx-auto h-56 sm:h-64 xl:h-80 2xl:h-96 w-5/6 md:w-2/3 lg:w-3/5">
       <Carousel slideInterval={5000}>
         {bestBooks?.map((book, i) => (
           <BookCard key={i} bookId={book.book_id} />
