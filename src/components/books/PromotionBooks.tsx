@@ -19,7 +19,7 @@ const BestBooks = () => {
   };
 
   const { data: bestBooks } = useQuery("bestBook", fetchBestBooks);
-  
+
   if (!bestBooks) {
     return null;
   }
@@ -140,22 +140,26 @@ const BookCard = ({ bookId }: { bookId: number }) => {
           <p className="mb-3 text-[#44B200] font-semibold">
             {formatRp(book?.price!)}
           </p>
-          {!isPruchased ? (
-            <button
-              onClick={() => handleAddToCart.mutate()}
-              className="bg-slate-700 text-slate-100 w-full px-3 py-2 gap-4 rounded"
-            >
-              <span>Add Cart</span>
-            </button>
-          ) : (
-            <a
-              target={"_blank"}
-              href={book?.content}
-              className="bg-slate-700 text-slate-100 w-full px-3 py-2 gap-4 rounded block text-center"
-              download={book?.title}
-            >
-              Download
-            </a>
+          {state.user.role === "user" && (
+            <>
+              {!isPruchased ? (
+                <button
+                  onClick={() => handleAddToCart.mutate()}
+                  className="bg-slate-700 text-slate-100 w-full px-3 py-2 gap-4 rounded"
+                >
+                  <span>Add Cart</span>
+                </button>
+              ) : (
+                <a
+                  target={"_blank"}
+                  href={book?.content}
+                  className="bg-slate-700 text-slate-100 w-full px-3 py-2 gap-4 rounded block text-center"
+                  download={book?.title}
+                >
+                  Download
+                </a>
+              )}
+            </>
           )}
         </div>
       </div>
