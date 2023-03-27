@@ -118,7 +118,7 @@ const BookCard = ({ bookId }: { bookId: number }) => {
 
   return (
     <div className="w-full h-full p-2 bg-white flex gap-5 justify-between border-2 shadow-md">
-      <img src={book?.thumbnail} className="w-32 md:w-48" />
+      <img src={book?.thumbnail} className="w-32 md:w-48 lg:w-56" />
       <div className="justify-self-start self-start flex-1 flex justify-between flex-col h-full">
         <div>
           <h5 className="text-lg lg:text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
