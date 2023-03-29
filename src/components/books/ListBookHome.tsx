@@ -11,6 +11,7 @@ import { BookType } from "../../utils/types";
 
 const ListBookHome = () => {
   const [keyword, setKeyword] = React.useState<string>("");
+
   const fetchBooks = async ({ queryKey }: QueryFunctionContext) => {
     const [_key, search] = queryKey;
     let endpoint = "/books";
@@ -20,6 +21,7 @@ const ListBookHome = () => {
     const { data } = await API.get(endpoint);
     return data.data;
   };
+  
   let { data: books } = useQuery<BookType[], Error>(
     ["books", keyword],
     fetchBooks
