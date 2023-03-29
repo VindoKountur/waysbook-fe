@@ -7,7 +7,7 @@ import UserBooks from "../../components/books/UserBooks";
 import UpdateProfileModal from "../../components/modals/UpdateProfileModal";
 
 import { API } from "../../config/api";
-import { UserProfileType } from "../../utils/types";
+import { CartType, UserProfileType } from "../../utils/types";
 import noProfile from "../../assets/noavatar.png";
 
 const Profile = () => {
@@ -21,6 +21,12 @@ const Profile = () => {
   };
 
   let { data: user } = useQuery("userProfile", getProfile);
+
+  const getCartList = async () => {
+      const res: { data: { data: CartType } } = await API.get("/cart-user");
+      return res.data.data;
+  };
+  let { data: cartList, refetch } = useQuery("cartList", getCartList);
 
   return (
     <div>

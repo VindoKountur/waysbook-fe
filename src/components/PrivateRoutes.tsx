@@ -5,14 +5,15 @@ import { UserContext } from "../context/userContext";
 export const UserRoute = () => {
   const { state } = useContext(UserContext);
   let isUser = state.user.role === "user";
-
+  return <Outlet />;
   return isUser ? <Outlet /> : <Navigate to="/" />;
 };
 
 export const AdminRoute = () => {
   const { state } = useContext(UserContext);
-  
+
   let isAdmin = state.user.role === "admin";
+  return <Outlet />;
 
   return isAdmin ? <Outlet /> : <Navigate to="/" />;
 };

@@ -65,6 +65,7 @@ const Login = ({
         } else {
           navigate("/");
         }
+        window.location.reload();
       });
     } catch (error: any) {
       const alert = (
@@ -79,7 +80,6 @@ const Login = ({
       setMessage(alert);
     } finally {
       setIsLoading(false);
-      window.location.reload();
     }
   });
   return (
