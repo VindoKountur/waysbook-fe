@@ -12,9 +12,9 @@ const UserBooks = () => {
 
   let { data: userBooks } = useQuery("userBooks", getUserBooks);
   return (
-    <div className="px-20 mt-4">
-      <h2>My Books</h2>
-      <div className="bg-white p-4 mt-4 border-2 rounded shadow-md grid grid-cols-4 gap-8">
+    <div className="px-5 md:px-20 mt-4">
+      <h2 className="font-semibold">My Books</h2>
+      <div className="bg-white p-4 mt-4 border-2 rounded shadow-md grid grid-cols-2 md:grid-cols-4 gap-8">
         {userBooks?.map((bookId, idx) => (
           <BookCard id={bookId} key={idx} />
         ))}
@@ -36,10 +36,12 @@ const BookCard = ({ id }: { id: number }) => {
   }, []);
 
   return (
-    <div className="flex flex-col">
-      <img src={book?.thumbnail} alt={book?.title} />
-      <p className="text-xl font-semibold">{book?.title}</p>
-      <p className="text-slate-500">By {book?.author}</p>
+    <div className="flex flex-col justify-between h-full">
+      <div>
+        <img src={book?.thumbnail} alt={book?.title} />
+        <p className="text-xl font-semibold">{book?.title}</p>
+        <p className="text-slate-500">By {book?.author}</p>
+      </div>
       <a
         target={"_blank"}
         href={book?.content}

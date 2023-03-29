@@ -24,11 +24,11 @@ const Profile = () => {
 
   return (
     <div>
-      <div className="px-20">
+      <div className="px-5 md:px-20">
         <h2 className="font-bold mt-4 text-xl">Profile</h2>
-        <div className="bg-white px-16 py-4 mt-4 flex justify-between border-2 rounded shadow-md">
-          <div className="flex flex-col gap-4 justify-start">
-            <div className="flex gap-3 items-center justify-center">
+        <div className="bg-white px-3 md:px-16 py-4 mt-4 flex flex-col-reverse md:flex-row justify-between border-2 rounded shadow-md">
+          <div className="flex flex-col gap-4 justify-start mt-4 md:mt-0">
+            <div className="flex gap-3 items-center">
               <IoMail size={"1.8em"} />
               <div>
                 <p className="font-semibold">{user?.email}</p>

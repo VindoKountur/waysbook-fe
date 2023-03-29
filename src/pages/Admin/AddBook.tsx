@@ -53,10 +53,10 @@ const AddBook = () => {
     } catch (error: any) {
       console.log(error);
       Swal.fire({
-        icon: 'info',
+        icon: "info",
         timer: 1500,
         text: error.response.data.message,
-      })
+      });
     } finally {
       setIsLoading(false);
     }
@@ -64,7 +64,7 @@ const AddBook = () => {
 
   return (
     <div className="bg-white">
-      <div className="px-20 py-10">
+      <div className="px-4 lg:px-20 py-10">
         <h3 className="text-2xl font-bold">Add Book</h3>
         <form
           onSubmit={handleSubmit(submitHandler)}
@@ -92,51 +92,55 @@ const AddBook = () => {
               required={true}
             />
           </div>
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="date" value="Publication Date" />
+          <div className="flex justify-between gap-4">
+            <div className="w-full">
+              <div className="mb-2 block">
+                <Label htmlFor="date" value="Publication Date" />
+              </div>
+              <TextInput
+                {...register("publication_date")}
+                id="date"
+                type="date"
+                required={true}
+              />
             </div>
-            <TextInput
-              {...register("publication_date")}
-              id="date"
-              type="date"
-              required={true}
-            />
-          </div>
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="pages" value="Total Pages" />
+            <div className="w-full">
+              <div className="mb-2 block">
+                <Label htmlFor="pages" value="Total Pages" />
+              </div>
+              <TextInput
+                {...register("pages")}
+                id="pages"
+                type="number"
+                required={true}
+              />
             </div>
-            <TextInput
-              {...register("pages")}
-              id="pages"
-              type="number"
-              required={true}
-            />
           </div>
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="isbn" value="ISBN" />
+          <div className="flex justify-between gap-4">
+            <div className="w-full">
+              <div className="mb-2 block">
+                <Label htmlFor="isbn" value="ISBN" />
+              </div>
+              <TextInput
+                {...register("isbn")}
+                id="isbn"
+                type="text"
+                required={true}
+              />
             </div>
-            <TextInput
-              {...register("isbn")}
-              id="isbn"
-              type="text"
-              required={true}
-            />
-          </div>
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="price" value="Price" />
+            <div className="w-full">
+              <div className="mb-2 block">
+                <Label htmlFor="price" value="Price" />
+              </div>
+              <TextInput
+                {...register("price")}
+                id="price"
+                type="number"
+                required={true}
+              />
             </div>
-            <TextInput
-              {...register("price")}
-              id="price"
-              type="number"
-              required={true}
-            />
           </div>
-          <div>
+          <div className="w-full">
             <div className="mb-2 block">
               <Label htmlFor="about" value="About This Book" />
             </div>
@@ -148,27 +152,29 @@ const AddBook = () => {
               rows={4}
             />
           </div>
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="thumbnail" value="Book Thumbnail" />
+          <div className="flex justify-between flex-col md:flex-row gap-4">
+            <div className="w-full">
+              <div className="mb-2 block">
+                <Label htmlFor="thumbnail" value="Book Thumbnail" />
+              </div>
+              <TextInput
+                {...register("thumbnail")}
+                id="thumbnail"
+                type="file"
+                required={true}
+              />
             </div>
-            <TextInput
-              {...register("thumbnail")}
-              id="thumbnail"
-              type="file"
-              required={true}
-            />
-          </div>
-          <div>
-            <div className="mb-2 block">
-              <Label htmlFor="content" value="Book Attechment" />
+            <div className="w-full">
+              <div className="mb-2 block">
+                <Label htmlFor="content" value="Book Attechment" />
+              </div>
+              <TextInput
+                {...register("content")}
+                id="content"
+                type="file"
+                required={true}
+              />
             </div>
-            <TextInput
-              {...register("content")}
-              id="content"
-              type="file"
-              required={true}
-            />
           </div>
 
           <Button disabled={isLoading} type="submit">
