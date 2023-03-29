@@ -21,7 +21,7 @@ const ListBookHome = () => {
     const { data } = await API.get(endpoint);
     return data.data;
   };
-  
+
   let { data: books } = useQuery<BookType[], Error>(
     ["books", keyword],
     fetchBooks
@@ -60,8 +60,8 @@ const ListBookCard = ({ book }: { book: BookType }) => {
       >
         <div className="h-full flex flex-col justify-between">
           <div>
-            <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {sliceText(book.title, 38)}
+            <h5 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white line-clamp-2">
+              {book.title}
             </h5>
             <p className="text-sm font-normal text-gray-700 dark:text-gray-400">
               By. {book.author}

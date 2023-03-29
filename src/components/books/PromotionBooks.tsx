@@ -39,27 +39,11 @@ const BookCard = ({ bookId }: { bookId: number }) => {
   const { state } = React.useContext(UserContext);
   const [book, setBook] = React.useState<BookType>();
   const [isPruchased, setIsPruchased] = React.useState<boolean>(false);
-  const [windowSize, setWindowSize] = React.useState(getWindowSize());
   const getBookDetail = async () => {
     const res: { data: { data: BookType } } = await API.get("/book/" + bookId);
     setBook(res.data.data);
   };
 
-  function getWindowSize() {
-    const { innerWidth, innerHeight } = window;
-    return { innerWidth, innerHeight };
-  }
-  React.useEffect(() => {
-    function handleWindowResize() {
-      setWindowSize(getWindowSize());
-    }
-
-    window.addEventListener("resize", handleWindowResize);
-
-    return () => {
-      window.removeEventListener("resize", handleWindowResize);
-    };
-  }, []);
 
   // Add To Cart
   const handleAddToCart = useMutation(async () => {
@@ -74,11 +58,8 @@ const BookCard = ({ bookId }: { bookId: number }) => {
           showConfirmButton: false,
           timer: 1500,
         });
-      } else {
-        console.log("not login");
       }
     } catch (error: any) {
-      console.log(error.response.data.message);
       Swal.fire({
         icon: "info",
         text: error.response.data.message,
@@ -125,15 +106,8 @@ const BookCard = ({ bookId }: { bookId: number }) => {
             {book?.title}
           </h5>
           <p className="text-slate-500">By {book?.author}</p>
-          <p className="font-normal text-gray-700 dark:text-gray-400">
-            {sliceText(
-              book?.about ?? "",
-              windowSize.innerWidth < 400
-                ? 0
-                : windowSize.innerWidth > 900
-                ? 200
-                : 75
-            )}
+          <p className="font-normal text-gray-700 dark:text-gray-400 line-clamp-3">
+            {book?.about}
           </p>
         </div>
         <div>
