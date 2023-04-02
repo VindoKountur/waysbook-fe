@@ -27,7 +27,7 @@ const Transaction = () => {
   const { data: transactions } = useQuery("transactions", fetchTransaction);
 
   return (
-    <div className="!bg-transparent mx-28">
+    <div className="!bg-transparent mx-4 md:mx-28">
       <h3 className="font-bold py-3">Income Transaction</h3>
 
       <Table hoverable={true}>

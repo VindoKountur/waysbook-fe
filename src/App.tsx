@@ -77,7 +77,7 @@ function App() {
 
             {/* ADMIN */}
             <Route path="/" element={<AdminRoute />}>
-              <Route path="/admin/" element={<Transaction />} />
+              <Route path="/admin/" element={<Transaction />} /> 
               <Route path="/admin/books" element={<ListBooks />} />
               <Route path="/admin/book/add" element={<AddBook />} />
               <Route path="/admin/book/update/:id" element={<UpdateBook />} />
