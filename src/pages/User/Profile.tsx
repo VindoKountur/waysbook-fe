@@ -86,21 +86,6 @@ const Profile = () => {
       </div>
 
       <UserBooks />
-      <div className="h-[500px] hidden">
-        <object
-          data="https://res.cloudinary.com/dfinrbg1i/image/upload/v1679722601/waysbooks/books/ua4ljumn72she2svedce.pdf"
-          type="application/pdf"
-          width="100%"
-          height="100%"
-        >
-          <p>
-            Alternative text - include a link{" "}
-            <a href="https://res.cloudinary.com/dfinrbg1i/image/upload/v1679722601/waysbooks/books/ua4ljumn72she2svedce.pdf">
-              to the PDF!
-            </a>
-          </p>
-        </object>
-      </div>
 
       <UpdateProfileModal
         show={showUpdateProfile}
