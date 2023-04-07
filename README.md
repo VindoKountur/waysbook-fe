@@ -3,7 +3,8 @@
 
 A web app where users can buy books that is available
 
-## Demo (https://waysbooks-frontend.vercel.app/)
+## Demo 
+[View](https://waysbooks-frontend.vercel.app/)
 
 ## Tech Stack
 
