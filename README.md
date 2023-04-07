@@ -1,7 +1,7 @@
 
 # Waysbooks (Frontend)
 
-A web app where users can buy books that is available
+A web app where users can buy and download books that are available
 
 ## Demo 
 [View](https://waysbooks-frontend.vercel.app/)
